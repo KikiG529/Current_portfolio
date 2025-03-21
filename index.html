@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiera Garvin</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/437601327a.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "wxB8pAeB6TYNHZDQw",
+      });
+   })();
+</script>
+</head>
+<body>
+
+    <section id="landing-page" onmousemove="moveBackground(event)">
+        <nav>
+            <figure>
+                <img id="personal-logo" src="./assets/k.gif" alt="">
+            </figure>
+            <ul class="nav__link--list">
+                <li class="nav__link" onClick="toggleModal()">
+                    <a href="#" class="nav__link--anchor
+                    link__hover-effect
+                    link__hover-effect--black
+                    ">About</a>
+                </li>
+                <li class="nav__link">
+                    <a href="#projects" class="nav__link--anchor
+                    link__hover-effect
+                    link__hover-effect--black
+                    ">Projects</a>
+                </li>
+                <li class="nav__link" onClick="toggleModal()">
+                    <a href="#" class="nav__link--anchor
+                    link__hover-effect
+                    link__hover-effect--black
+                    ">Contact</a>
+                </li>
+                <li class="nav__link click" onClick="toggleContrast()">
+                    <a href="#" class="nav__link--anchor
+                    link__hover-effect
+                    link__hover-effect--black
+                    "><i class="fas fa-adjust"></i></a>
+                </li>
+            </ul>
+        </nav>
+        <header class="header">
+            <div class="header__content">
+                <h1 class="title">Hello!</h1>
+                <h1 class="title green">I'm Kiera.</h1>
+                <p class="header__para">I'm a <b class="green">Frontend Software Engineer</b> dedicated to creating imaginative, dynamic web applications
+                     that help users discover their own creativity.
+                    <br> Here's a bit more <b class="green click" onclick="toggleModal()">about me!</b>
+                </p>
+                <div class="social__list">
+                    <a href="https://www.linkedin.com/in/kiera-garvin-5b1624181" target="_blank" class="social__link click">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/KikiG529" target="_blank" class="social__link click">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="./assets/2025programming_resume.docx (1).pdf" target="_blank" class="social__link click">
+                        <i class="fa-regular fa-file-lines"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <a href="#">
+            <button class="mail__btn click" onclick="toggleModal()">
+                <i class="fas fa-envelope"></i>
+        </button>
+        </a>
+
+        <a href="#projects" class="scroll">
+            <div class="scroll__icon click"></div>
+        </a>
+        <div class="modal">
+           <div class="modal__half modal__about">
+            <h3 class="modal__title modal__title--about">A bit about me!</h3>
+            <h4 class="modal__sub-title modal__sub-title--about">Frontend Software Engineer</h4>
+            <p class="modal__para">
+                I'm Kiera, a <b class="green">frontend software engineer</b> from Florida. I graduated from Florida State University in 2021 with my BFA in <b class="green">studio art</b>,
+                 and while this may seem like an unconvential route to becoming a software engineer, I like to think that that's what makes me great at it.
+
+                 Not only am I a creative person, but I am a <b class="green">relentless problem solver</b> with an eye for detail and I am always thinking about how things work and fit together.
+                 I don't just want to create a great user experience, I want to create a <b class="green">beautiful one</b>, that's as <b class="green">intuitively and thoughtfully constructed</b> as it is functional.
+            </p>
+            <div class="modal__languages">
+                <figure class="modal__language">
+                    <img class="modal__language--img" src="./assets/html5-original.svg" alt="">
+                    <span class="language__name">HTML</span>
+                </figure>
+                <figure class="modal__language">
+                    <img class="modal__language--img" src="./assets/css3-original.svg" alt="">
+                    <span class="language__name">CSS</span>
+                </figure>
+                <figure class="modal__language">
+                    <img class="modal__language--img" src="./assets/javascript-original.svg" alt="">
+                    <span class="language__name">JavaScript</span>
+                </figure>
+                <figure class="modal__language">
+                    <img class="modal__language--img" src="./assets/react-original.svg" alt="">
+                    <span class="language__name">React</span>
+                </figure>
+                <figure class="modal__language">
+                    <img class="modal__language--img" src="./assets/python-original.svg" alt="">
+                    <span class="language__name">Python</span>
+                </figure>
+            </div>
+           </div> 
+           <div class="modal__half modal__contact">
+            <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+            <h3 class="modal__title modal__title--contact">Let's chat!</h3>
+            <h4 class="modal__sub-title modal__sub-title--contact">I'm currently open to new opportunities and would love to hear from you.</h4>
+            <form id="contact__form" onsubmit="contact(event)">
+                <div class="form__item">
+                    <label class="form__item--label">Name</label>
+                    <input class="input" name="user_name" type="text" required></input>
+                </div>
+                <div class="form__item">
+                    <label class="form__item--label">Email</label>
+                    <input class="input" name="user_email" type="email" required></input>
+                </div>
+                <div class="form__item">
+                    <label class="form__item--label">Message</label>
+                    <textarea class="input" name="message" type="text" required></textarea>
+                </div>
+                <button id="contact__submit" class="form__submit">Send it my way</button>
+            </form>
+            <div class="modal__overlay modal__overlay--loading">
+                <i class="fas fa-spinner"></i>
+            </div>
+            <div class="modal__overlay modal__overlay--success">Thank you for the message - I'm looking forward to speaking to you soon!</div>
+           </div> 
+        </div>
+
+        <img src="./assets/star-svgrepo-com.svg" class="shape shape--0" alt="">
+        <img src="./assets/star-svgrepo-com.svg" class="shape shape--1" alt="">
+        <img src="./assets/star-svgrepo-com.svg" class="shape shape--2" alt="">
+        <img src="./assets/star-svgrepo-com.svg" class="shape shape--3" alt="">
+        <img src="./assets/star-svgrepo-com.svg" class="shape shape--4" alt="">
+        <img src="./assets/star-svgrepo-com.svg" class="shape shape--5" alt="">
+        <img src="./assets/star-svgrepo-com.svg" class="shape shape--6" alt="">
+        <img src="./assets/star-svgrepo-com.svg" class="shape shape--7" alt="">
+        <img src="./assets/star-svgrepo-com.svg" class="shape shape--8" alt="">
+        <img src="./assets/star-svgrepo-com.svg" class="shape shape--9" alt="">
+        <img src="./assets/star-svgrepo-com.svg" class="shape shape--10" alt="">
+        <img src="./assets/star-svgrepo-com.svg" class="shape shape--11" alt="">
+        <img src="./assets/star-svgrepo-com.svg" class="shape shape--12" alt="">
+        <img src="./assets/star-svgrepo-com.svg" class="shape shape--13" alt="">
+        <img src="./assets/star-svgrepo-com.svg" class="shape shape--14" alt="">
+
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <div class="row">
+                <h1 class="section__title">
+                    Here are some of my <span class="green">projects</span>
+                </h1>
+                <ul class="project__list">
+                    <li class="project">
+                        <div class="project__wrapper">
+                            <img src="./assets/Untitled design (1).png" class="project__img" alt="">
+                                <div class="project__wrapper--bg"></div>
+                                <div class="project__description">
+                                    <h3 class="project__description--title">
+                                    Clone Project
+                                    </h3>
+                                    <h4 class="project__description--sub-title">
+                                    Html, CSS, JavaScript
+                                    </h4>
+                                    <p class="project_-description--para">
+                                    I wanted to learn how closely I could replicate another website, using the Treact free template-site as my reference. I used Html, CSS, and Javascript to create a fully responsive webpage with different, buttons, features, and animations.
+                                    </p>
+                                    <div class="project__description--links">
+                                        <a href="https://github.com/KikiG529/treact_cloneproject" class="project__description--link">
+                                        <i class="fab fa-github"></i>
+                                        </a>
+                                        <a href="https://kikig529.github.io/treact_cloneproject/" class="project__description--link">
+                                        <i class="fas fa-link"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                        </div>
+                    </li>
+
+                    <li class="project">
+                        <div class="project__wrapper">
+                            <img src="./assets/Untitled design (2).png" class="project__img" alt="">
+                                <div class="project__wrapper--bg"></div>
+                                <div class="project__description">
+                                    <h3 class="project__description--title">
+                                    E-Library Project
+                                    </h3>
+                                    <h4 class="project__description--sub-title">
+                                    Html, CSS, JavaScript
+                                    </h4>
+                                    <p class="project_-description--para">
+                                    This was a test project I created to exlemplify various styling effects in CSS and JavaScript, as well as showcase how I can create a fully responsive webpage.
+                                    </p>
+                                    <div class="project__description--links">
+                                        <a href="https://github.com/KikiG529/library__project--test" class="project__description--link">
+                                        <i class="fab fa-github"></i>
+                                        </a>
+                                        <a href="https://kikig529.github.io/library__project--test/" class="project__description--link">
+                                        <i class="fas fa-link"></i>
+                                        </a>
+                                    </div>
+                                </div>                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row footer__row">
+
+                <figure>
+                    <img class="footer__logo--img" src="./assets/dark-logo.gif" alt="">
+                </figure>
+                <div class="footer__social--list">
+                    <a href="https://github.com/KikiG529" target="_blank" class="footer__social--link
+                        link__hover-effect
+                        link__hover-effect--white
+                        ">GitHub</a>
+                    <a href="https://www.linkedin.com/in/kiera-garvin-5b1624181" target="_blank" class="footer__social--link
+                        link__hover-effect
+                        link__hover-effect--white
+                        ">LinkedIn</a>
+                    <a href="#" onclick="toggleModal()" class="footer__social--link
+                        link__hover-effect
+                        link__hover-effect--white
+                        ">Contact</a>
+                    <a href="./assets/2025programming_resume.docx (1).pdf" target="_blank" class="footer__social--link
+                        link__hover-effect
+                        link__hover-effect--white
+                        ">Resume</a>
+                </div>
+            <div class="footer__copyright">Copyright&copy; 2025 Kiera Garvin</div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
